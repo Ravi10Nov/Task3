@@ -9,17 +9,13 @@ function App() {
   const [headerData , setHeaderData] = useState(null);
 
   const handleChange = (e) =>{
-    // const value = e.target.value;
-    // if (/^\d*$/.test(value)) {
-    //   setPhoneNumber(value);
-    // }
     setPhoneNumber(e.target.value);
   }
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
   
-    if (phoneNumber.length <10) {
+    if (phoneNumber.length !==10) {
       alert('Please enter 10 digit phone number');
       setPhoneNumber('');
       return;
@@ -52,10 +48,9 @@ function App() {
       <h1 className='heading'>Post Phone Number</h1>
       
       <form onSubmit={handleSubmit}>
-        <input type='text' value={phoneNumber} onChange={handleChange} placeholder='Enter the phone number' className='input' pattern='\d*'/>
+        <input type='number' value={phoneNumber} onChange={handleChange} placeholder='Enter the phone number' className='input' />
         <button type='submit' className='btn'>Submit</button>
       </form>
-
       {headerData && (
         <div>
           <h2>Response Headers :</h2>
